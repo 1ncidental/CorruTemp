@@ -6,10 +6,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>INSPINIA | Minor view</title>
+    <title>INSPINIA | Single Facer Data</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+	
+	    <link href="css/plugins/dataTables/datatables.min.css" rel="stylesheet">
 
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
@@ -68,18 +70,66 @@
 
             </nav>
         </div>
+
         <div class="wrapper wrapper-content animated fadeInRight">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="text-center m-t-lg">
-                        <h1>
-                            Simple example of second view
-                        </h1>
-                        <small>Writen in minor.html file.</small>
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Basic Data Tables example with responsive plugin</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="#">Config option 1</a>
+                                </li>
+                                <li><a href="#">Config option 2</a>
+                                </li>
+                            </ul>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+
+                        <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover dataTables-sf1" >
+        <thead>
+            <tr>
+                <th>T09</th>
+                <th>T10</th>
+                <th>T11</th>
+                <th>T12</th>
+                <th>T13</th>
+                <th>Recorded</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>T09</th>
+                <th>T10</th>
+                <th>T11</th>
+                <th>T12</th>
+                <th>T13</th>
+                <th>Recorded</th>
+            </tr>
+        </thead>
+        </tfoot>
+    </table>
+                        </div>
+
                     </div>
                 </div>
             </div>
-        </div>
+            </div>
+        </div>		
+		
+		
         <div class="footer">
             <div class="pull-right">
                 10GB of <strong>250GB</strong> Free.
@@ -101,8 +151,50 @@
 <!-- Custom and plugin javascript -->
 <script src="js/inspinia.js"></script>
 <script src="js/plugins/pace/pace.min.js"></script>
+    <script src="js/plugins/dataTables/datatables.min.js"></script>
 
+	    <script>
+        $(document).ready(function(){
+            $('.dataTables-sf1').DataTable({
+			
+        "ajax": "http://206.189.200.105:1880/sf1-table",
+        "columns": [
+            { "data": "T09" },
+            { "data": "T10" },
+            { "data": "T11" },
+            { "data": "T12" },
+            { "data": "T13" },
+            { "data": "Recorded" }
 
+        ],
+	
+                pageLength: 25,
+                responsive: true,
+                dom: '<"html5buttons"B>lTfgitp',
+                buttons: [
+                    { extend: 'copy'},
+                    {extend: 'csv'},
+                    {extend: 'excel', title: 'ExampleFile'},
+                    {extend: 'pdf', title: 'ExampleFile'},
+
+                    {extend: 'print',
+                     customize: function (win){
+                            $(win.document.body).addClass('white-bg');
+                            $(win.document.body).css('font-size', '10px');
+
+                            $(win.document.body).find('table')
+                                    .addClass('compact')
+                                    .css('font-size', 'inherit');
+                    }
+                    }
+                ]
+
+            });
+
+        });
+
+    </script>
+	
 </body>
 
 </html>
