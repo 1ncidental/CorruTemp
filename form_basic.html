@@ -403,18 +403,18 @@
                                 <p>T-09</p>
 							
                             <form action="http://206.189.200.105:1880/get" method="post" class="userForm">
-                                <div class="form-group"><label class="col-sm-2" "control-label">Target Temperature</label>
-
-                                    <div class="col-sm-10"><input type="text" class="form-control" name="T09-Target"></div>
-                                </div>
+                                 <div class="hr-line-dashed"></div>
+                                <div class="form-group"><label class="col-sm-2 control-label">Target Temperature</label>
+                                    <div class="col-sm-10"><input type="text" class="form-control" name="T09-Target"> <span class="help-block m-b-none">An Alarm will be generated for any temperature Lower than this value</span>
+                                    </div>
                                 <div class="hr-line-dashed"></div>
                                 <div class="form-group"><label class="col-sm-2 control-label">Lower Limit</label>
-                                    <div class="col-sm-10"><input type="text" class="form-control"> <span class="help-block m-b-none">An Alarm will be generated for any temperature Lower than this value</span>
+                                    <div class="col-sm-10"><input type="text" class="form-control" name="T09-Lower"> <span class="help-block m-b-none">An Alarm will be generated for any temperature Lower than this value</span>
                                     </div>
                                 </div>
 								 <div class="hr-line-dashed"></div>
                                 <div class="form-group"><label class="col-sm-2 control-label">Upper Limit</label>
-                                    <div class="col-sm-10"><input type="text" class="form-control"> <span class="help-block m-b-none">An Alarm will be generated for any temperature Greater than this value</span>
+                                    <div class="col-sm-10"><input type="text" class="form-control" name="T09-Upper"> <span class="help-block m-b-none">An Alarm will be generated for any temperature Greater than this value</span>
                                     </div>
                                 </div>
                                 <div class="hr-line-dashed"></div>
