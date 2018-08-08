@@ -122,7 +122,7 @@
                                 <h5>Single Facer 1 Temperature Trends</h5>
                                 <div class="pull-right">
                                     <div class="btn-group">
-                                        <button type="button" class="btn btn-xs btn-white active">Minute</button>
+                                        <button type="button" class="btn btn-xs btn-white active">Live</button>
                                         <button type="button" class="btn btn-xs btn-white">Hour</button>
                                         <button type="button" class="btn btn-xs btn-white">Day</button>
                                     </div>
@@ -195,14 +195,14 @@ $( "#T13-Temp" ).load( "http://206.189.200.105:1880/SF1-T13" );
         var chart = c3.generate({
                 bindto: '#lineChart',
                  data: {
-					url: 'http://206.189.200.105:1880/SF1',
+					url: 'http://192.168.178.56:1880/DB_Exit_Chart',
 					mimeType: 'json'
 						}
 					                 
             });
 		   setInterval(function () {
 			chart.load({
-				url: 'http://206.189.200.105:1880/SF1',
+				url: 'http://192.168.178.56:1880/DB_Exit_Chart',
 				mimeType: 'json'
 				});
 			}, 1000);
