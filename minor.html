@@ -101,22 +101,24 @@
                     <table class="table table-striped table-bordered table-hover dataTables-sf1" >
         <thead>
             <tr>
-                <th>T09</th>
-                <th>T10</th>
-                <th>T11</th>
-                <th>T12</th>
-                <th>T13</th>
-                <th>Recorded</th>
+                <th>T01 Actual</th>
+                <th>T01 Maximum</th>
+                <th>T01 Minimum</th>
+                <th>T02 Actual</th>
+                <th>T02 Maximum</th>
+                <th>T02 Minimum</th>
+                <th>Recorded At</th>
             </tr>
         </thead>
         <tfoot>
             <tr>
-                <th>T09</th>
-                <th>T10</th>
-                <th>T11</th>
-                <th>T12</th>
-                <th>T13</th>
-                <th>Recorded</th>
+                <th>T01 Actual</th>
+                <th>T01 Maximum</th>
+                <th>T01 Minimum</th>
+                <th>T02 Actual</th>
+                <th>T02 Maximum</th>
+                <th>T02 Minimum</th>
+                <th>Recorded At</th>
             </tr>
         </thead>
         </tfoot>
@@ -157,14 +159,15 @@
         $(document).ready(function(){
             $('.dataTables-sf1').DataTable({
 			
-        "ajax": "http://206.189.200.105:1880/sf1-table",
+        "ajax": "http://206.189.200.105:1880/db_exit_1_min",
         "columns": [
-            { "data": "T09" },
-            { "data": "T10" },
-            { "data": "T11" },
-            { "data": "T12" },
-            { "data": "T13" },
-            { "data": "Recorded" }
+            { "data": "T01_Current" },
+            { "data": "T01_Min" },
+            { "data": "T01_Max" },
+            { "data": "T02_Current" },
+            { "data": "T02_Min" },
+            { "data": "T02_Max" },
+            { "data": "Recorded_At" }
 
         ],
 	
