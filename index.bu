@@ -77,14 +77,14 @@
 			            <div class="col-lg-2">
 							<div class="ibox-content">
                             <div class="text-center">
-                                <div id="T01-Temp"></div>
+                                <div id="T09-Temp"></div>
                         </div>
                         </div>
                     </div>
 			            <div class="col-lg-2">
 							<div class="ibox-content">
                             <div class="text-center">
-                                <div id="T02-Temp"></div>
+                                <div id="T10-Temp"></div>
                         </div>
                         </div>
                     </div>
@@ -92,7 +92,7 @@
 			            <div class="col-lg-2">
 							<div class="ibox-content">
                             <div class="text-center">
-                                <div id="T01-2-Diff"></div>
+                                <div id="T11-Temp"></div>
                         </div>
                         </div>
                     </div>
@@ -185,9 +185,11 @@
  <script>
         $(document).ready(function() {
 	setInterval(function(){
-$( "#T01-Temp" ).load( "http://192.168.178.56:1880/T01_Widget" ),
-$( "#T02-Temp" ).load( "http://192.168.178.56:1880/T02_Widget" );
-
+$( "#T09-Temp" ).load( "http://206.189.200.105:1880/SF1-T09" ),
+$( "#T10-Temp" ).load( "http://206.189.200.105:1880/SF1-T10" ),
+$( "#T11-Temp" ).load( "http://206.189.200.105:1880/SF1-T11" ),
+$( "#T12-Temp" ).load( "http://206.189.200.105:1880/SF1-T12" ),
+$( "#T13-Temp" ).load( "http://206.189.200.105:1880/SF1-T13" );
 }, 10000);
 
         var chart = c3.generate({
@@ -211,10 +213,11 @@ $( "#T02-Temp" ).load( "http://192.168.178.56:1880/T02_Widget" );
 					                 
             });
 		   setInterval(function () {
-			chart.load({
+			chart.flow({
 				url: 'http://192.168.178.56:1880/DB_Exit_Chart',
 				mimeType: 'json'
 				});
+				duration: 1500
 			}, 1000);
 			
 			
