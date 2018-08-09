@@ -142,14 +142,7 @@
                                          <div id="lineChart"></div>
                                     <
                                 </div>
-                                <div class="col-lg-5s">
-                                    <ul class="stat-list">
-                                            <h2 class="no-margins"></h2>
-                                            <small>Double Backer Exit</small>
-							<span>
-                            <img alt="image" class="" src="img/DB_Exit.png" />
-                             </span>
-                                            </div>
+
                                     </div>
                                 </div>
                                 </div>
@@ -196,6 +189,7 @@ $(function(){
     $('input:radio').change(function(){
         $.post("http://192.168.178.56:1880/chart_val",
         {Duration: $("[name='Duration']:checked").val()},
+		
         function(data,status){
 
 		});
@@ -218,7 +212,9 @@ $( "#T02-Temp" ).load( "http://192.168.178.56:1880/T02_Widget" );
 					url: 'http://192.168.178.56:1880/DB_Exit_Chart',
 					mimeType: 'json'
 						},
-				    
+	    legend: {
+        position: 'right'
+    },			    
     axis: {
         x: {
             show: true,
