@@ -401,25 +401,25 @@
 						                        <div class="row">
                             <div class="col-sm-6 b-r"><h3 class="m-t-none m-b">T01 - Bottom</h3>
 							
-                            <form action="http://192.168.178.56:1880/DB_Exit_Parameters" method="post" class="userForm">
+                            <form action="#" method="post" class="userForm" id="T01_Form">
                                 <div class="p-md bg-muted></div>
                                 <div class="form-group"><label   control-label">Target Temperature</label></br>
-                                    <div class="col-sm-12"><input type="text" class="form-control" name="T09-Target"> 
+                                    <div class="col-sm-12"><input type="text" class="form-control" name="T01_Target"> 
                                     </div>
                                 <div class="p-md bg-muted></div>
                                 <div class="form-group"><label   control-label">Lower Limit</label>
-                                    <div class="col-sm-12"><input type="text" class="form-control" name="T09-Lower"> 
+                                    <div class="col-sm-12"><input type="text" class="form-control" name="T01_Lower"> 
                                     </div>
                                 </div>
 								 <div class="p-md bg-muted></div>
                                 <div class="form-group"><label   control-label">Upper Limit</label>
-                                    <div class="col-sm-12"><input type="text" class="form-control" name="T09-Upper"> 
+                                    <div class="col-sm-12"><input type="text" class="form-control" name="T01_Upper"> 
                                     </div></br>
                                 <div class="hr-line-dashed"></div>
                                 <div class="form-group">
                                     <div class="col-sm-6 col-sm-offset-2">
-                                        <button class="btn btn-white" type="submit">Cancel</button>
-                                        <button class="btn btn-primary" type="submit">Save changes</button>
+
+                                        <button class="btn btn-primary" type="button" name="submit_tag" id="submit_tag">Save changes</button>
                                     </div>
                                 </div>
                             </form>
@@ -453,19 +453,18 @@
 
     <!-- iCheck -->
 <script>
-$(document).ready(function(){
+// Submit form with name function.
+$("#submit_tag").click(function() {
+var T01_Target = $("#T01_Target").val();
+var T01_Upper = $("#T01_Upper").val();
+var T01_Lower = $("#T01_Lower").val();
+var dataString = 'T01_Target='+ T01_Target + '&T01_Upper=' + T01_Upper + '&T01_Lower' + T01_Lower;
+{
+$("form[name='T01_Form']").submit(); // Form Submission
+$.post("http://192.168.178.56:1880/DB_Exit_Parameters", $('#T01_Form').serialize())
 
-$('input#submitButton').click( function() {
-    $.ajax({
-        url: 'http://206.189.200.105:1880/get',
-        type: 'post',
-        dataType: 'json',
-        data: $('form#userForm').serialize(),
-        success: function(data) {
-                   
-                 }
-    });
-});
+  return false;
+}
 });
 </script>
 </body>
