@@ -93,7 +93,7 @@
 
                                 Date Range Picker
 
-                            <input type="text" name="datetimes" />
+                            <input type="text" name="daterange" value="01/01/2018 - 01/15/2018" />
 <div>
  <hr>
 </div>
@@ -159,16 +159,19 @@
 <script src="js/plugins/dataTables/date_range.js"></script>
 	    <script>
 
-		    $(function() {
-  $('input[name="datetimes"]').daterangepicker({
-    timePicker: true,
-    startDate: moment().startOf('hour'),
-    endDate: moment().startOf('hour').add(32, 'hour'),
-    locale: {
-      format: 'M/DD hh:mm A'
-    }
+<script type="text/javascript">
+$(function() {
+
+  $('input[name="datefilter"]').daterangepicker({
+      autoUpdateInput: false,
+      locale: {
+          cancelLabel: 'Clear'
+      }
   });
-});
+
+  $('input[name="datefilter"]').on('apply.daterangepicker', function(ev, picker) {
+      $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
+  });
 			
         $(document).ready(function(){
             $('.dataTables-sf1').DataTable({
