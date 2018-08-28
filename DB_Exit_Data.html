@@ -93,7 +93,7 @@
 
                                 Date Range Picker
 
-                            <input type="text" name="daterange" value="01/01/2018 - 01/15/2018" />
+                            <input type="text" name="daterange" value="01/01/2018 - 01/01/2019" />
 <div>
  <hr>
 </div>
@@ -156,29 +156,28 @@
 <script src="js/inspinia.js"></script>
 <script src="js/plugins/pace/pace.min.js"></script>
 <script src="js/plugins/dataTables/datatables.min.js"></script>
-<script src="js/plugins/dataTables/date_range.js"></script>
+
 
 <script>
 
  
 $(function() {
+  $('input[name="daterange"]').daterangepicker({
+    opens: 'left'
+  }, function(start, end, label) {
+    console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+	var dataString = 'start.format='+ start.format + '&end.format=' + end.format ;
+$.post("http://192.168.178.56:1880/DB_Exit_Query", $('#dataString'))
 
-  $('input[name="datefilter"]').daterangepicker({
-      autoUpdateInput: false,
-      locale: {
-          cancelLabel: 'Clear'
-      }
   });
-
-  $('input[name="datefilter"]').on('apply.daterangepicker', function(ev, picker) {
-      $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
-  });
+  $('#daterange').on('apply.daterangepicker', function(ev, picker) {
+  console.log(picker.startDate.format('YYYY-MM-DD'));
+  console.log(picker.endDate.format('YYYY-MM-DD'));
+});
+});
 			
         $(document).ready(function(){
             $('.dataTables-sf1').DataTable({
-			      $('#startDate').keyup( function() { table.draw(); } );
-				  $('#endDate').keyup( function() { table.draw(); } );
-		});	
         "ajax": "http://192.168.178.56:1880/db_exit_1_min",
         "columns": [
             { "data": "T01_Curr_temp" },
@@ -197,8 +196,8 @@ $(function() {
                 buttons: [
                     { extend: 'copy'},
                     {extend: 'csv'},
-                    {extend: 'excel', title: 'ExampleFile'},
-                    {extend: 'pdf', title: 'ExampleFile'},
+                    {extend: 'excel', title: 'TemperatureReport'},
+                    {extend: 'pdf', title: 'TemperatureReport'},
 
                     {extend: 'print',
                      customize: function (win){
