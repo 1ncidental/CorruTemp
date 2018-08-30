@@ -183,7 +183,9 @@ $.post("http://192.168.178.56:1880/DB_Exit_Query", $('#dataString'))
 			
         $(document).ready(function(){
             $('.dataTables-sf1').DataTable({
-        "ajax": {
+ 		"processing": true,
+        "serverSide": true,
+		"ajax": {
 		"url": "http://192.168.178.56:1880/db_exit_1_min",
 		"data": function ( d ) {
                 d.myKey = $('#daterange').val();
