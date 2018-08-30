@@ -186,7 +186,7 @@ $.post("http://192.168.178.56:1880/DB_Exit_Query", $('#dataString'))
         "ajax": {
 		"url": "http://192.168.178.56:1880/db_exit_1_min",
 		"data": function ( d ) {
-                d.myKey = dataString;
+                d.myKey = $('#daterange').val();
                 // d.custom = $('#myInput').val();
                 // etc
             }},
