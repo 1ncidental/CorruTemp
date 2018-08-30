@@ -183,9 +183,8 @@ $.post("http://10.0.0.2:1880/DB_Exit_Query", $('#dataString'))
 			
         $(document).ready(function(){
             $('.dataTables-sf1').DataTable({
-        "serverSide": true,
 		"ajax": {
-		"url": "http://10.0.0.2:1880/db_exit_1_min",
+		"url": "http://127.0.0.1:1880/db_exit_1_min",
 		"data": function ( d ) {
                 d.myKey = $('#daterange').val();
                 // d.custom = $('#myInput').val();
