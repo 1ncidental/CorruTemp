@@ -169,62 +169,6 @@
         </div>
 
 
-    <!-- Mainly scripts -->
-    <script src="js/jquery-3.1.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
-    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-
-    <!-- Custom and plugin javascript -->
-    <script src="js/inspinia.js"></script>
-    <script src="js/plugins/pace/pace.min.js"></script>
-
-    <!-- iCheck -->
-<script>
-// Submit form with name function.
-$("#submit_tag").click(function() {
-var T01_Target = $("#T01_Target").val();
-var T01_Upper = $("#T01_Upper").val();
-var T01_Lower = $("#T01_Lower").val();
-var dataString = 'T01_Target='+ T01_Target + '&T01_Upper=' + T01_Upper + '&T01_Lower' + T01_Lower;
-{
-$("form[name='T01_Form']").submit(); // Form Submission
-$.post("http://192.168.178.56:1880/DB_Exit_Parameters1", $('#T01_Form').serialize())
-
-  return false;
-}
-});
-
-// Submit form with name function.
-$("#submit_tag").click(function() {
-var T02_Target = $("#T02_Target").val();
-var T02_Upper = $("#T02_Upper").val();
-var T02_Lower = $("#T02_Lower").val();
-var dataString = 'T02_Target='+ T02_Target + '&T02_Upper=' + T02_Upper + '&T02_Lower' + T02_Lower;
-{
-$("form[name='T02_Form']").submit(); // Form Submission
-$.post("http://192.168.178.56:1880/DB_Exit_Parameters2", $('#T02_Form').serialize())
-
-  return false;
-}
-});
-</script>
-</body>
-
-</html>		
-		
-        <div class="footer">
-            <div class="pull-right">
-                10GB of <strong>250GB</strong> Free.
-            </div>
-            <div>
-                <strong>Copyright</strong> Example Company &copy; 2014-2017
-            </div>
-        </div>
-
-    </div>
-</div>
-
 <!-- Mainly scripts -->
 <script src="js/jquery-3.1.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
@@ -248,7 +192,7 @@ var T01_Lower = $("#T01_Lower").val();
 var dataString = 'T01_Target='+ T01_Target + '&T01_Upper=' + T01_Upper + '&T01_Lower' + T01_Lower;
 {
 $("form[name='T01_Form']").submit(); // Form Submission
-$.post("http://192.168.178.56:1880/DB_Exit_Parameters", $('#T01_Form').serialize())
+$.post("http://192.168.178.56:1880/DB_Exit_Parameters1", $('#T01_Form').serialize())
 
   return false;
 }
