@@ -197,6 +197,20 @@ $.post("http://192.168.178.56:1880/DB_Exit_Parameters1", $('#T01_Form').serializ
   return false;
 }
 });
+
+// Submit form with name function.
+$("#submit_tag").click(function() {
+var T02_Target = $("#T02_Target").val();
+var T02_Upper = $("#T02_Upper").val();
+var T02_Lower = $("#T02_Lower").val();
+var dataString = 'T02_Target='+ T02_Target + '&T02_Upper=' + T02_Upper + '&T02_Lower' + T02_Lower;
+{
+$("form[name='T02_Form']").submit(); // Form Submission
+$.post("http://192.168.178.56:1880/DB_Exit_Parameters1", $('#T02_Form').serialize())
+
+  return false;
+}
+});
 </script>
 	
 </body>
