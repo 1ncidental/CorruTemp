@@ -109,7 +109,7 @@
                                 <div class="form-group">
                                     <div class="col-sm-6 col-sm-offset-2">
 
-                                        <button class="btn btn-primary" type="button" name="submit_tag" id="submit_tag">Save changes</button>
+                                        <button class="btn btn-primary" type="button" name="submit_tag1" id="submit_tag1">Save changes</button>
 							</div>
                                     </div>
                             </form>
@@ -121,7 +121,7 @@
                 <div class="col-lg-5">
 
 						    <div class="row">
-                            <div class="col-sm-6 b-r"><h3 class="m-t-none m-b">T01 - Top</h3></div>
+                            <div class="col-sm-6 b-r"><h3 class="m-t-none m-b">T02 - Top</h3></div>
 							
                             <form action="#" method="post" class="userForm" id="T02_Form">
                                 
@@ -142,7 +142,7 @@
                                 <div class="form-group">
                                     <div class="col-sm-6 col-sm-offset-2">
 
-                                        <button class="btn btn-primary" type="button" name="submit_tag" id="submit_tag">Save changes</button>
+                                        <button class="btn btn-primary" type="button" name="submit_tag2" id="submit_tag2">Save changes</button>
 							</div>
                                     </div>
                                 </div>
@@ -185,7 +185,7 @@
 
 <script>
 // Submit form with name function.
-$("#submit_tag").click(function() {
+$("#submit_tag1").click(function() {
 var T01_Target = $("#T01_Target").val();
 var T01_Upper = $("#T01_Upper").val();
 var T01_Lower = $("#T01_Lower").val();
@@ -199,7 +199,7 @@ $.post("http://192.168.178.56:1880/DB_Exit_Parameters1", $('#T01_Form').serializ
 });
 
 // Submit form with name function.
-$("#submit_tag").click(function() {
+$("#submit_tag2").click(function() {
 var T02_Target = $("#T02_Target").val();
 var T02_Upper = $("#T02_Upper").val();
 var T02_Lower = $("#T02_Lower").val();
