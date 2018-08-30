@@ -83,34 +83,76 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="ibox-content">
-						                        <div class="row">
-                            <div class="col-sm-6 b-r"><h3 class="m-t-none m-b">T01 - Bottom</h3>
+
+				 <div class="ibox-content">
+						    <div class="row">				 
+                <div class="col-lg-5">
+
+                            <div class="col-sm-6 b-r"><h3 class="m-t-none m-b">T01 - Bottom</h3></div>
 							
                             <form action="#" method="post" class="userForm" id="T01_Form">
-                                <div class="p-md bg-muted></div>
+                                
+								<div class="p-md"> </div> 
                                 <div class="form-group"><label   control-label">Target Temperature</label></br>
-                                    <div class="col-sm-12"><input type="text" class="form-control" name="T01_Target"> 
+                                    <div class="col-sm-12"><input type="text" class="form-control" name="T01_Target"> </div>
                                     </div>
-                                <div class="p-md bg-muted></div>
+                                <div class="p-md"></div>
                                 <div class="form-group"><label   control-label">Lower Limit</label>
-                                    <div class="col-sm-12"><input type="text" class="form-control" name="T01_Lower"> 
+                                    <div class="col-sm-12"><input type="text" class="form-control" name="T01_Lower"> </div>
                                     </div>
-                                </div>
-								 <div class="p-md bg-muted></div>
+                            
+								 <div class="p-md"></div>
                                 <div class="form-group"><label   control-label">Upper Limit</label>
-                                    <div class="col-sm-12"><input type="text" class="form-control" name="T01_Upper"> 
+                                    <div class="col-sm-12"><input type="text" class="form-control" name="T01_Upper"> </div>
                                     </div></br>
                                 <div class="hr-line-dashed"></div>
                                 <div class="form-group">
                                     <div class="col-sm-6 col-sm-offset-2">
 
                                         <button class="btn btn-primary" type="button" name="submit_tag" id="submit_tag">Save changes</button>
+							</div>
+                                    </div>
+                            </form>
+				</div>
+
+
+
+
+                <div class="col-lg-5">
+
+						    <div class="row">
+                            <div class="col-sm-6 b-r"><h3 class="m-t-none m-b">T01 - Top</h3></div>
+							
+                            <form action="#" method="post" class="userForm" id="T02_Form">
+                                
+								<div class="p-md"> </div> 
+                                <div class="form-group"><label   control-label">Target Temperature</label></br>
+                                    <div class="col-sm-12"><input type="text" class="form-control" name="T02_Target"> </div>
+                                    </div>
+                                <div class="p-md"></div>
+                                <div class="form-group"><label   control-label">Lower Limit</label>
+                                    <div class="col-sm-12"><input type="text" class="form-control" name="T02_Lower"> </div>
+                                    </div>
+                            
+								 <div class="p-md"></div>
+                                <div class="form-group"><label   control-label">Upper Limit</label>
+                                    <div class="col-sm-12"><input type="text" class="form-control" name="T02_Upper"> </div>
+                                    </div></br>
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group">
+                                    <div class="col-sm-6 col-sm-offset-2">
+
+                                        <button class="btn btn-primary" type="button" name="submit_tag" id="submit_tag">Save changes</button>
+							</div>
                                     </div>
                                 </div>
                             </form>
+							                                </div>
+                        </div>							
                         </div>
                     </div>
+					                    </div>
+                </div>
                 </div>
             </div>
         </div>
@@ -147,7 +189,21 @@ var T01_Lower = $("#T01_Lower").val();
 var dataString = 'T01_Target='+ T01_Target + '&T01_Upper=' + T01_Upper + '&T01_Lower' + T01_Lower;
 {
 $("form[name='T01_Form']").submit(); // Form Submission
-$.post("http://192.168.178.56:1880/DB_Exit_Parameters", $('#T01_Form').serialize())
+$.post("http://192.168.178.56:1880/DB_Exit_Parameters1", $('#T01_Form').serialize())
+
+  return false;
+}
+});
+
+// Submit form with name function.
+$("#submit_tag").click(function() {
+var T02_Target = $("#T02_Target").val();
+var T02_Upper = $("#T02_Upper").val();
+var T02_Lower = $("#T02_Lower").val();
+var dataString = 'T02_Target='+ T02_Target + '&T02_Upper=' + T02_Upper + '&T02_Lower' + T02_Lower;
+{
+$("form[name='T02_Form']").submit(); // Form Submission
+$.post("http://192.168.178.56:1880/DB_Exit_Parameters2", $('#T02_Form').serialize())
 
   return false;
 }
