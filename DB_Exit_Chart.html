@@ -169,7 +169,7 @@
  
 $(function(){
     $('input:radio').change(function(){
-        $.post("http://10.0.0.2:1880/chart_val",
+        $.post("http://192.168.178.56:1880/chart_val",
         {Duration: $("[name='Duration']:checked").val()},
 		
         function(data,status){
@@ -182,8 +182,8 @@ $(function(){
 	
         $(document).ready(function() {
 	setInterval(function(){
-$( "#T01-Temp" ).load( "http://10.0.0.2:1880/T01_Widget" ),
-$( "#T02-Temp" ).load( "http://10.0.0.2:1880/T02_Widget" );
+$( "#T01-Temp" ).load( "http://192.168.178.56:1880/T01_Widget" ),
+$( "#T02-Temp" ).load( "http://192.168.178.56:1880/T02_Widget" );
 
 }, 1000);
 
@@ -191,7 +191,7 @@ $( "#T02-Temp" ).load( "http://10.0.0.2:1880/T02_Widget" );
                 bindto: '#lineChart',
                  data: {
 					x: 'x',
-					url: 'http://10.0.0.2:1880/DB_Exit_Chart',
+					url: 'http://192.168.178.56:1880/DB_Exit_Chart',
 					mimeType: 'json'
 						},
 	    legend: {
@@ -211,7 +211,7 @@ $( "#T02-Temp" ).load( "http://10.0.0.2:1880/T02_Widget" );
             });
 		   setInterval(function () {
 			chart.load({
-				url: 'http://10.0.0.2:1880/DB_Exit_Chart',
+				url: 'http://192.168.178.56:1880/DB_Exit_Chart',
 				mimeType: 'json'
 				});
 			}, 1000);
