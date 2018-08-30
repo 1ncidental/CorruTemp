@@ -165,13 +165,13 @@
 
 <script>
 
- 
+var dataString; 
 $(function() {
   $('input[name="daterange"]').daterangepicker({
     opens: 'left'
   }, function(start, end, label) {
     console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
-	dataString : 'start.format='+ start.format + '&end.format=' + end.format ;
+	var dataString = 'start.format='+ start.format + '&end.format=' + end.format ;
 $.post("http://192.168.178.56:1880/DB_Exit_Query", $('#dataString'))
 
   });
@@ -184,10 +184,12 @@ $.post("http://192.168.178.56:1880/DB_Exit_Query", $('#dataString'))
         $(document).ready(function(){
             $('.dataTables-sf1').DataTable({
         "ajax": {
-			"url": "http://192.168.178.56:1880/db_exit_1_min",
-			"data" : {
-				}
-				},
+		"url": "http://192.168.178.56:1880/db_exit_1_min",
+		"data": function ( d ) {
+                d.myKey = dataString;
+                // d.custom = $('#myInput').val();
+                // etc
+            }},
         "columns": [
             { "data": "T01_Curr_temp" },
             { "data": "T01_Min_temp" },
