@@ -183,10 +183,11 @@ $.post("http://192.168.178.56:1880/DB_Exit_Query", $('#dataString'))
 			
         $(document).ready(function(){
             $('.dataTables-sf1').DataTable({
+			var range = $('#daterange').datepicker("getDate");
         "ajax": {
 			"url": "http://192.168.178.56:1880/db_exit_1_min",
 			"data" : {
-				abc : dataString
+				"abc" : range
 				}
 				},
         "columns": [
