@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>INSPINIA | Single Facer Data</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+	
+	    <link href="css/plugins/dataTables/datatables.min.css" rel="stylesheet">
+
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu">
+
+                <li>
+                    <a href="#"><i class="fa fa-files-o"></i> <span class="nav-label">Double Backer Exit</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="DB_Exit_Chart.html">Dashboard & Chart</a></li>
+                        <li><a href="DB_Exit_Data.html">Lookup Table</a></li>
+						<li><a href="DB_Exit_Data _Entry.html">Parameter Entry</a></li>						
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <div id="page-wrapper" class="gray-bg">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+					
+
+                  
+
+                </div>
+                <ul class="nav navbar-top-links navbar-right">
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-sign-out"></i> Log out
+                        </a>
+                    </li>
+                </ul>
+
+            </nav>
+        </div>
+
+             <div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Double Backer Exit <small>Target Temperatures and Alarms</small></h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-wrench"></i>
+                                </a>
+                                <a class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="ibox-content">
+						                        <div class="row">
+                            <div class="col-sm-6 b-r"><h3 class="m-t-none m-b">T01 - Bottom</h3>
+							
+                            <form action="#" method="post" class="userForm" id="T01_Form">
+                                <div class="p-md bg-muted></div>
+                                <div class="form-group"><label   control-label">Target Temperature</label></br>
+                                    <div class="col-sm-12"><input type="text" class="form-control" name="T01_Target"> 
+                                    </div>
+                                <div class="p-md bg-muted></div>
+                                <div class="form-group"><label   control-label">Lower Limit</label>
+                                    <div class="col-sm-12"><input type="text" class="form-control" name="T01_Lower"> 
+                                    </div>
+                                </div>
+								 <div class="p-md bg-muted></div>
+                                <div class="form-group"><label   control-label">Upper Limit</label>
+                                    <div class="col-sm-12"><input type="text" class="form-control" name="T01_Upper"> 
+                                    </div></br>
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group">
+                                    <div class="col-sm-6 col-sm-offset-2">
+
+                                        <button class="btn btn-primary" type="button" name="submit_tag" id="submit_tag">Save changes</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="pull-right">
+                10GB of <strong>250GB</strong> Free.
+            </div>
+            <div>
+                <strong>Copyright</strong> Example Company &copy; 2014-2017
+            </div>
+        </div>
+
+        </div>
+        </div>
+
+
+    <!-- Mainly scripts -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="js/inspinia.js"></script>
+    <script src="js/plugins/pace/pace.min.js"></script>
+
+    <!-- iCheck -->
+<script>
+// Submit form with name function.
+$("#submit_tag").click(function() {
+var T01_Target = $("#T01_Target").val();
+var T01_Upper = $("#T01_Upper").val();
+var T01_Lower = $("#T01_Lower").val();
+var dataString = 'T01_Target='+ T01_Target + '&T01_Upper=' + T01_Upper + '&T01_Lower' + T01_Lower;
+{
+$("form[name='T01_Form']").submit(); // Form Submission
+$.post("http://192.168.178.56:1880/DB_Exit_Parameters", $('#T01_Form').serialize())
+
+  return false;
+}
+});
+</script>
+</body>
+
+</html>		
+		
+        <div class="footer">
+            <div class="pull-right">
+                10GB of <strong>250GB</strong> Free.
+            </div>
+            <div>
+                <strong>Copyright</strong> Example Company &copy; 2014-2017
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Mainly scripts -->
+<script src="js/jquery-3.1.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<!-- Date range picker -->
+<script src="js/plugins/daterangepicker/daterangepicker.js"></script>
+
+<!-- Custom and plugin javascript -->
+<script src="js/inspinia.js"></script>
+<script src="js/plugins/pace/pace.min.js"></script>
+<script src="js/plugins/dataTables/datatables.min.js"></script>
+
+
+<script>
+// Submit form with name function.
+$("#submit_tag").click(function() {
+var T01_Target = $("#T01_Target").val();
+var T01_Upper = $("#T01_Upper").val();
+var T01_Lower = $("#T01_Lower").val();
+var dataString = 'T01_Target='+ T01_Target + '&T01_Upper=' + T01_Upper + '&T01_Lower' + T01_Lower;
+{
+$("form[name='T01_Form']").submit(); // Form Submission
+$.post("http://192.168.178.56:1880/DB_Exit_Parameters", $('#T01_Form').serialize())
+
+  return false;
+}
+});
+</script>
+	
+</body>
+
+</html>
