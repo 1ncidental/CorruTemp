@@ -185,7 +185,7 @@
 	$('input[name="daterange"]').daterangepicker({
 		opens: 'left'
 	}, function(start, end, label) {
-		ajax({
+		$.ajax({
 			url: 'http://192.168.178.56:1880/dates',
 			dataType: "text json",
 			type: "POST",
