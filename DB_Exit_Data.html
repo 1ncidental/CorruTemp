@@ -194,7 +194,12 @@
 				console.log("function() ajaxPost : " + status);
 			}
 		}),
-		$('.dataTables-sf1').DataTable({
+		$("#dataTables-sf1").ajax.reload()
+})
+});
+			
+        $(document).ready(function(){
+            $('.dataTables-sf1').DataTable({
 		"ajax": {
 		"url": "http://192.168.178.56:1880/db_exit_1_min",
             },
@@ -234,7 +239,7 @@
 
             });
 
- 
+        });
 
     </script>
 	
