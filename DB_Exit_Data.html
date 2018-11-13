@@ -180,7 +180,9 @@
 
 
 <script>
-var table = $('.dataTables-sf1').DataTable();
+    $(document).ready(function(){
+	var table = $('.dataTables-sf1').DataTable();
+	});
 
     $(document).ready(function(){
 	$('input[name="daterange"]').daterangepicker({
