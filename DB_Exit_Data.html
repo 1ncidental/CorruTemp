@@ -103,7 +103,7 @@
                                 Designed to work with the Bootstrap CSS framework.
                             </p>
 
-                            <input class="form-control" type="date" name="daterange" value="01/01/2018 - 01/31/2019" />
+                            <input class="form-control" type="text" name="daterange" value="01/01/2018 - 01/31/2019" />
 
                         </div>
 						
@@ -186,6 +186,14 @@
 		opens: 'left'
 	}, function(start, end, label) {
     console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+	ajax({
+    url: 'http://192.168.178.56:1880/dates',
+    dataType: "text json",
+    type: "POST",
+    data: {start.format: start.format, end.format: end.format},
+    success: function(jsonObject,status) {
+
+        console.log("function() ajaxPost : " + status);
   });
 });
 			
